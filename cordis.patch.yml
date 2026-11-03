@@ -1,0 +1,4 @@
+- insert:
+    - id: global-persona
+      name: dsh-plugin-global-persona
+      config: {}

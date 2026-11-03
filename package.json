@@ -1,0 +1,61 @@
+{
+  "name": "dsh-plugin-global-persona",
+  "version": "1.0.0",
+  "description": "Inject one editable AI persona into every DeepSeek Harness conversation.",
+  "type": "module",
+  "license": "MIT",
+  "author": "dsh-plugin-global-persona contributors",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "persona",
+    "system-prompt",
+    "plugin",
+    "bundle"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Patrick126090380/dsh-plugin-global-persona.git"
+  },
+  "homepage": "https://github.com/Patrick126090380/dsh-plugin-global-persona#readme",
+  "bugs": {
+    "url": "https://github.com/Patrick126090380/dsh-plugin-global-persona/issues"
+  },
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "vendor/schemastery.mjs",
+    "vendor/cosmokit.mjs",
+    "vendor/*.LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check client.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-plugin-manager",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  }
+}
